@@ -70,4 +70,18 @@ h2 {
 #section-works ul {
   list-style: none; }
 
+#section-contacts {
+  margin: 50px 0 0; }
+  #section-contacts .social-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-left: 10px; }
+    #section-contacts .social-icon svg {
+      fill: #bfbfbf; }
+    #section-contacts .social-icon:hover svg {
+      fill: #696969; }
+    #section-contacts .social-icon:first-child {
+      margin-left: 0; }
+
 /*# sourceMappingURL=main.css.map */
