@@ -4,13 +4,13 @@ class Work extends React.Component {
     render( ) {
         return (
             <li id={this.props.id}>
-                <div className="bg">
-                    <div className="overlay"></div>
-                </div>
-                <h3>
-                    <a href={this.props.URL}>{this.props.name}</a>
-                </h3>
-                <p>{this.props.description}</p>
+                <a href={this.props.URL} target="_blank">
+                    <div className="bg">
+                        <div className="overlay"></div>
+                    </div>
+                    <h3>{this.props.name}</h3>
+                    <p>{this.props.description}</p>
+                </a>
             </li>
         );
     }
