@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Works from './Works';
-import './css/index.css';
+import './css/main.css';
 
 const works = [
     {

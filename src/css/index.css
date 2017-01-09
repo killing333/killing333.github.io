@@ -81,4 +81,43 @@ h2 {
     #section-contacts .social-icon:first-child {
       margin-left: 0; }
 
-/*# sourceMappingURL=main.css.map */
+#section-works ul {
+  list-style: none;
+  padding: 0; }
+  #section-works ul li {
+    position: relative;
+    overflow: hidden;
+    padding-left: 20px; }
+    #section-works ul li a {
+      display: block;
+      padding: 20px 0 10px;
+      text-decoration: none;
+      color: #337ab7; }
+      #section-works ul li a:hover {
+        text-decoration: none;
+        color: #337ab7; }
+      #section-works ul li a h3 {
+        margin: 0; }
+      #section-works ul li a p {
+        margin: 10px 0 0; }
+    #section-works ul li .bg {
+      transition: 0.15s;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 20%;
+      top: 0;
+      z-index: -1;
+      opacity: 0.0;
+      background-repeat: no-repeat;
+      background-position-y: center; }
+      #section-works ul li .bg .overlay {
+        height: 100%;
+        background: linear-gradient(90deg, transparent, white 80%); }
+    #section-works ul li:hover .bg {
+      left: 0;
+      opacity: 0.1; }
+  #section-works ul #mark-six-checker .bg {
+    background-image: url("/133066_a.jpg"); }
+
+/*# sourceMappingURL=index.css.map */

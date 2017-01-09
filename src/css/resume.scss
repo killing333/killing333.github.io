@@ -1,0 +1,71 @@
+@import "main";
+$platform-icon-color: $social-icon-color;
+$platform-icon-color-hover: $social-icon-color-hover;
+
+#section-intro {
+    p {
+        font-size: 18px;
+        margin   : 16px 6px;
+    }
+}
+
+#inner-section-contacts {
+    //  margin: 50px 0 0;
+    .social-icon {
+        display : block;
+        position: relative;
+        margin  : 10px 0;
+
+        svg {
+            position: absolute;
+            left    : 0;
+            top     : -2px;
+            width   : 24px;
+            height  : 24px;
+            fill    : $social-icon-color;
+        }
+
+        span {
+            margin-left: 32px;
+        }
+
+        &:hover {
+            svg {
+                fill: $social-icon-color-hover;
+            }
+        }
+    }
+}
+
+.platform-icon {
+    display: inline-block;
+    margin : 0 -2px;
+
+    svg {
+        width : 36px;
+        height: 36px;
+        fill  : $platform-icon-color;
+    }
+
+    &:hover {
+        svg {
+            fill: $platform-icon-color-hover;
+        }
+    }
+
+    &-ios {
+        svg {
+            width : 32px;
+            height: 32px;
+            margin: 2px 0;
+        }
+    }
+
+    &:first-child {
+        margin-left: 12px;
+    }
+}
+
+#list-works {
+    list-style-type: none;
+}

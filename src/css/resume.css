@@ -81,4 +81,43 @@ h2 {
     #section-contacts .social-icon:first-child {
       margin-left: 0; }
 
-/*# sourceMappingURL=main.css.map */
+#section-intro p {
+  font-size: 18px;
+  margin: 16px 6px; }
+
+#inner-section-contacts .social-icon {
+  display: block;
+  position: relative;
+  margin: 10px 0; }
+  #inner-section-contacts .social-icon svg {
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 24px;
+    height: 24px;
+    fill: #bfbfbf; }
+  #inner-section-contacts .social-icon span {
+    margin-left: 32px; }
+  #inner-section-contacts .social-icon:hover svg {
+    fill: #696969; }
+
+.platform-icon {
+  display: inline-block;
+  margin: 0 -2px; }
+  .platform-icon svg {
+    width: 36px;
+    height: 36px;
+    fill: #bfbfbf; }
+  .platform-icon:hover svg {
+    fill: #696969; }
+  .platform-icon-ios svg {
+    width: 32px;
+    height: 32px;
+    margin: 2px 0; }
+  .platform-icon:first-child {
+    margin-left: 12px; }
+
+#list-works {
+  list-style-type: none; }
+
+/*# sourceMappingURL=resume.css.map */
