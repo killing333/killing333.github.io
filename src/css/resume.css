@@ -103,21 +103,80 @@ h2 {
 
 .platform-icon {
   display: inline-block;
+  width: 36px;
+  height: 36px;
   margin: 0 -2px; }
   .platform-icon svg {
     width: 36px;
     height: 36px;
+    margin-bottom: -5px;
     fill: #bfbfbf; }
   .platform-icon:hover svg {
     fill: #696969; }
   .platform-icon-ios svg {
     width: 32px;
     height: 32px;
-    margin: 2px 0; }
+    margin-bottom: -2px; }
   .platform-icon:first-child {
     margin-left: 12px; }
 
+#section-skills .row {
+  margin-top: 20px;
+  margin-bottom: 50px; }
+#section-skills .skill-item {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 4px;
+  margin-bottom: 4px; }
+  #section-skills .skill-item-secondary {
+    color: #afafaf; }
+
 #list-works {
   list-style-type: none; }
+  #list-works li {
+    margin-bottom: 70px; }
+  #list-works .work-icon {
+    max-height: 120px;
+    width: auto;
+    margin-left: 30px; }
+    #list-works .work-icon-rounded {
+      border-radius: 10px; }
+  #list-works .work-title {
+    margin-bottom: 3px; }
+  #list-works .work-date {
+    color: #b9b9b9;
+    margin-bottom: 16px; }
+
+#list-experience {
+  list-style-type: none; }
+  #list-experience li {
+    margin-bottom: 70px; }
+    #list-experience li p {
+      margin-top: 20px; }
+  #list-experience .company-icon {
+    max-height: 120px;
+    width: auto;
+    margin-left: 30px; }
+    #list-experience .company-icon-rounded {
+      border-radius: 10px; }
+  #list-experience .experience-company {
+    margin: 24px 0 6px; }
+  #list-experience .experience-date {
+    color: #b9b9b9; }
+
+#list-education {
+  list-style-type: none; }
+  #list-education li {
+    margin-bottom: 70px; }
+  #list-education .education-icon {
+    max-height: 120px;
+    width: auto;
+    margin-left: 30px; }
+    #list-education .education-icon-rounded {
+      border-radius: 10px; }
+  #list-education .education-school {
+    margin: 24px 0 6px; }
+  #list-education .education-date {
+    color: #b9b9b9; }
 
 /*# sourceMappingURL=resume.css.map */
