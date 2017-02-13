@@ -1,21 +1,29 @@
 {
-    "name": "Blank",
-    "version": "0.1.0",
-    "private": true,
-    "devDependencies": {
-        "gh-pages": "^0.12.0",
-        "react-scripts": "0.7.0"
-    },
-    "dependencies": {
-        "react": "^15.4.1",
-        "react-dom": "^15.4.1"
+    "name": "void",
+    "version": "1.0.0",
+    "description": "Nothing here",
+    "main": "index.js",
+    "directories": {
+        "doc": "doc"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "deploy": "gh-pages -d build"
+        "build": "lessc css/main.less dist/main.css && webpack --config webpack.config.js",
+        "build-prod": "lessc --clean-css=\"advanced\" css/main.less dist/main.css && webpack --config webpack.config.js -p",
+        "start": "http-server"
     },
-    "homepage": "http://killing333.github.io"
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.22.1",
+        "babel-loader": "^6.2.10",
+        "babel-preset-env": "^1.1.8",
+        "bootstrap": "^3.3.7",
+        "http-server": "^0.9.0",
+        "jquery": "^3.1.1",
+        "less": "^2.7.2",
+        "less-plugin-clean-css": "^1.5.1",
+        "three": "^0.84.0",
+        "vue": "^2.1.10",
+        "webpack": "^2.2.1"
+    }
 }
