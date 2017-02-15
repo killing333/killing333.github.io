@@ -5,11 +5,13 @@ const _ = require( 'lodash' );
 const bootstrap = require( 'bootstrap' );
 const THREE = require( 'three' );
 const Detector = require( 'js/detector.js' );
+const LOGO = require( 'js/logo.js' );
 
 // Vue components
 const About = require( 'components/About.vue' );
 
 let router = null;
+let logo = null;
 
 Vue.use( VueRouter );
 initRouting();
@@ -84,12 +86,16 @@ function initBackground3DScene() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
 
-	let geometry = new THREE.BoxGeometry( 1, 6, 1 );
-	let meshMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-	let wireFrameMat = new THREE.MeshBasicMaterial();
-	wireFrameMat.wireframe = true;
-	let cube = THREE.SceneUtils.createMultiMaterialObject( geometry, [ meshMaterial, wireFrameMat ] );
-	scene.add( cube );
+	// let geometry = new THREE.BoxGeometry( 1, 6, 1 );
+	// let meshMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+	// let wireFrameMat = new THREE.MeshBasicMaterial();
+	// wireFrameMat.wireframe = true;
+	// let cube = THREE.SceneUtils.createMultiMaterialObject( geometry, [ meshMaterial, wireFrameMat ] );
+	// scene.add( cube );
+	logo = new LOGO.LogoThirteen();
+	scene.add( logo.letterOne );
+	scene.add( logo.letterThreeTop );
+	window.custom_logo = logo;
 
 	// Add listeners
 	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
@@ -97,6 +103,7 @@ function initBackground3DScene() {
 	document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 	window.addEventListener( 'resize', onWindowResize, false );
 }
+
 
 function animate() {
 	requestAnimationFrame( animate );
