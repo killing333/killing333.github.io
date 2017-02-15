@@ -6,7 +6,10 @@ module.exports = {
 		loaders: [ {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loader: "babel-loader"
+			loader: 'babel-loader'
+		}, {
+			test: /\.vue$/,
+			loader: 'vue-loader'
 		} ]
 	},
 	entry: './js/main.js',
@@ -16,7 +19,8 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			js: path.resolve( __dirname, './js' )
+			js: path.resolve( __dirname, './js' ),
+			components: path.resolve( __dirname, './components' )
 		}
 	},
 	plugins: [
