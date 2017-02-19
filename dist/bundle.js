@@ -53714,24 +53714,61 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var THREE = __webpack_require__(1);
 
+var ParallelLines =
+/**
+ * Stroke a number of lines
+ * @param  {THREE.Vector3} direction        Direction of lines from origin
+ * @param  {[Number]} length                Length of the lines. Lines would be stretched bidirectionally (along the direction and the opposite direction) from the origin.
+ * @param  {[Number]} lengthVar             Additional variant length. Length added to each line is different from others
+ * @param  {THREE.Vector3} posShift         Position shift variance from the origin
+ * @param  {Number} [count=10]              Number of lines to be generate
+ * @return {THREE.Group}                    Group of lines
+ */
+function ParallelLines(direction, length) {
+	var lengthVar = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+	var posShiftVar = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : new THREE.Vector3();
+	var count = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 10;
+
+	_classCallCheck(this, ParallelLines);
+
+	var normalizedDir = direction.clone().normalize();
+	this.componentGroup = new THREE.Group();
+
+	for (var i = 0; i < count; i++) {
+		var totalLength = length + Math.random() * lengthVar;
+		var halfLength = totalLength / 2;
+		var vertex1 = normalizedDir.clone().setLength(halfLength);
+		var vertex2 = normalizedDir.clone().negate().setLength(halfLength);
+
+		// Create geometry
+		var geometry = new THREE.Geometry();
+		geometry.vertices.push(vertex1);
+		geometry.vertices.push(vertex2);
+
+		// Create line
+		var material = new THREE.LineBasicMaterial({ color: 0x888888 });
+		var line = new THREE.Line(geometry, material);
+		line.position.set(posShiftVar.x * (Math.random() - 0.5), posShiftVar.y * (Math.random() - 0.5), posShiftVar.z * (Math.random() - 0.5));
+		this.componentGroup.add(line);
+	}
+};
+
 var LogoThirteen = exports.LogoThirteen = function () {
 	function LogoThirteen() {
 		_classCallCheck(this, LogoThirteen);
 
-		this.letterOne = null;
-		this.letterThreeTop = null;
+		this.letterOne = new ParallelLines(new THREE.Vector3(0, 1, 0), 7, 3, new THREE.Vector3(0.3, 0.1, 1));
+		this.letterThreeTop = this.strokeLines([-2, -1.5], [1.5, 2], [-0.2, 0.2], [-0.2, 0.2], [-0.2, 0.2], [-0.2, 0.2], 10);
+		// this.letterThreeTop.position.set( 1.5, 0, 0 );
 
-		this.stroke();
+		this.componentGroup = new THREE.Group();
+		this.componentGroup.add(this.letterOne.componentGroup);
+		this.componentGroup.add(this.letterThreeTop);
 	}
 
 	_createClass(LogoThirteen, [{
 		key: 'stroke',
-		value: function stroke() {
-			this.letterOne = this.strokeLines([-0.2, 0.2], [-0.2, 0.2], [-5, -2], [2, 5], [-0.2, 0.2], [-0.2, 0.2], 10);
-			this.letterOne.position.set(-3, 0, 0);
-
-			this.letterThreeTop = this.strokeLines([-2, -1.5], [1.5, 2], [-0.2, 0.2], [-0.2, 0.2], [-0.2, 0.2], [-0.2, 0.2], 10);
-		}
+		value: function stroke() {}
 
 		/**
    * Stroke a number of lines
@@ -73899,6 +73936,7 @@ var mouseX = 0,
     scene = void 0,
     camera = void 0,
     renderer = void 0;
+var cameraOrbitRadius = 10;
 
 if (Detector.webgl) {
 	initBackground3DScene();
@@ -73944,7 +73982,7 @@ function initBackground3DScene() {
 	scene = new THREE.Scene();
 	// scene.background = new THREE.Color( 0xffffff );
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-	camera.position.z = 10;
+	camera.position.z = cameraOrbitRadius;
 	camera.lookAt(scene.position);
 
 	renderer = new THREE.WebGLRenderer({
@@ -73963,8 +74001,7 @@ function initBackground3DScene() {
 	// let cube = THREE.SceneUtils.createMultiMaterialObject( geometry, [ meshMaterial, wireFrameMat ] );
 	// scene.add( cube );
 	logo = new LOGO.LogoThirteen();
-	scene.add(logo.letterOne);
-	scene.add(logo.letterThreeTop);
+	scene.add(logo.componentGroup);
 	window.custom_logo = logo;
 
 	// Add listeners
@@ -73977,12 +74014,10 @@ function initBackground3DScene() {
 function animate() {
 	requestAnimationFrame(animate);
 
-	camera.position.x = mouseXPortion * 2;
-	camera.position.y = mouseYPortion * -2;
-	// camera.position.y += ( -mouseY + 200 - camera.position.y ) * .05;
+	camera.position.x = cameraOrbitRadius * Math.sin(Math.PI / 2 * mouseXPortion);
+	camera.position.z = cameraOrbitRadius * Math.cos(Math.PI / 2 * mouseXPortion);
+	camera.position.y = -cameraOrbitRadius * Math.sin(Math.PI / 2 * mouseYPortion);
 	camera.lookAt(scene.position);
-	// cube.rotation.x += 0.01;
-	// cube.rotation.y += 0.01;
 
 	renderer.render(scene, camera);
 };

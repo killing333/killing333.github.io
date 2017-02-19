@@ -23,7 +23,10 @@ let mouseX = 0,
 	mouseYPortion = 0,
 	windowHalfX = window.innerWidth / 2,
 	windowHalfY = window.innerHeight / 2,
-	scene, camera, renderer;
+	scene,
+	camera,
+	renderer;
+let cameraOrbitRadius = 10;
 
 if ( Detector.webgl ) {
 	initBackground3DScene();
@@ -74,7 +77,7 @@ function initBackground3DScene() {
 	scene = new THREE.Scene();
 	// scene.background = new THREE.Color( 0xffffff );
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-	camera.position.z = 10;
+	camera.position.z = cameraOrbitRadius;
 	camera.lookAt( scene.position );
 
 	renderer = new THREE.WebGLRenderer( {
@@ -93,8 +96,7 @@ function initBackground3DScene() {
 	// let cube = THREE.SceneUtils.createMultiMaterialObject( geometry, [ meshMaterial, wireFrameMat ] );
 	// scene.add( cube );
 	logo = new LOGO.LogoThirteen();
-	scene.add( logo.letterOne );
-	scene.add( logo.letterThreeTop );
+	scene.add( logo.componentGroup );
 	window.custom_logo = logo;
 
 	// Add listeners
@@ -108,12 +110,10 @@ function initBackground3DScene() {
 function animate() {
 	requestAnimationFrame( animate );
 
-	camera.position.x = mouseXPortion * 2;
-	camera.position.y = mouseYPortion * -2;
-	// camera.position.y += ( -mouseY + 200 - camera.position.y ) * .05;
+	camera.position.x = cameraOrbitRadius * Math.sin( Math.PI / 2 * mouseXPortion );
+	camera.position.z = cameraOrbitRadius * Math.cos( Math.PI / 2 * mouseXPortion );
+	camera.position.y = -cameraOrbitRadius * Math.sin( Math.PI / 2 * mouseYPortion );
 	camera.lookAt( scene.position );
-	// cube.rotation.x += 0.01;
-	// cube.rotation.y += 0.01;
 
 	renderer.render( scene, camera );
 };

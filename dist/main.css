@@ -7034,6 +7034,12 @@ nav li router-link.selected {
   top: 0;
   z-index: -1;
 }
+#canvas-camera-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+}
 .component-enter-active,
 .component-leave-active {
   transition: opacity 0.5s;
