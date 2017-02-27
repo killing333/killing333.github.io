@@ -6994,6 +6994,8 @@ router-link {
   text-decoration: none;
   color: #6b6b6b;
 }
+a:focus,
+router-link:focus,
 a:hover,
 router-link:hover,
 a:visited,
@@ -7024,6 +7026,8 @@ nav li a:hover,
 nav li router-link:hover {
   color: black;
 }
+nav li a.router-link-active,
+nav li router-link.router-link-active,
 nav li a.selected,
 nav li router-link.selected {
   color: white;

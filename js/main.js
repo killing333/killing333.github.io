@@ -1,41 +1,48 @@
 require( 'js/plugins.js' );
-const _ = require( 'lodash' );
+import * as firebase from 'firebase';
+import * as _ from 'lodash';
 // const Vue = require( 'vue' );
 // const VueRouter = require( 'vue-router' );
-const bootstrap = require( 'bootstrap' );
-const THREE = require( 'three' );
+import * as bootstrap from 'bootstrap';
+import * as THREE from 'three';
 const Detector = require( 'js/detector.js' );
 const LOGO = require( 'js/logo.js' );
+const router = null;
 
-// Vue components
-const About = require( 'components/About.vue' );
+// Init firebase
+var config = {
+	apiKey: "AIzaSyBwIpst2CGy9DNqLoHlGl8fjYJpKJNF1I0",
+	authDomain: "th1rt3en-b55a4.firebaseapp.com",
+	databaseURL: "https://th1rt3en-b55a4.firebaseio.com",
+	storageBucket: "th1rt3en-b55a4.appspot.com",
+	messagingSenderId: "1008773513144"
+};
+firebase.initializeApp( config );
 
-let router = null;
-let logo = null;
-
+// Init vue
 Vue.use( VueRouter );
 initRouting();
 
-
-let mouseX = 0,
-	mouseY = 0,
-	mouseXPortion = 0,
-	mouseYPortion = 0,
-	windowHalfX = window.innerWidth / 2,
-	windowHalfY = window.innerHeight / 2,
-	scene,
-	camera,
-	renderer;
-let cameraOrbitRadius = 10;
-
 if ( Detector.webgl ) {
-	initBackground3DScene();
-	animate();
+	LOGO.init();
 } else {
 	var warning = Detector.getWebGLErrorMessage();
 	document.getElementById( 'container' ).appendChild( warning );
 }
-
+firebase.auth().onAuthStateChanged( function( user ) {
+	if ( user ) {
+		// User is signed in.
+		// Works.login = true;/
+		router;
+		console.log( 'User is signed in.' );
+	} else {
+		// No user is signed in.
+		// Works.login = false;/
+		router;
+		console.log( 'No User is signed in.' );
+	}
+} );
+window.firebase = firebase;
 
 
 
@@ -43,9 +50,6 @@ if ( Detector.webgl ) {
 // Helpers
 //---------------------------------------------------------------//
 function initRouting() {
-	// 1. Define route components.
-	// These can be imported from other files
-	const Works = { template: '<div>Works</div>' }
 
 	// Define some routes and create the router instance and pass the `routes` option
 	router = new VueRouter( {
@@ -55,12 +59,13 @@ function initRouting() {
 			}, {
 				path: '/about',
 				name: 'about',
-				component: About
+				component: require( 'components/About.vue' )
 			},
 			{
 				path: '/works',
 				name: 'works',
-				component: Works
+				component: require( 'components/Works.vue' ),
+				props: ( route ) => ( { login: ( firebase.auth().currentUser !== null ) } )
 			}
 		]
 	} )
@@ -68,94 +73,7 @@ function initRouting() {
 	// 4. Create and mount the root instance.
 	// Make sure to inject the router with the router option to make the
 	// whole app router-aware.
-	const app = new Vue( {
-		router
+	let app = new Vue( {
+		router: router
 	} ).$mount( '#app' )
-}
-
-function initBackground3DScene() {
-	scene = new THREE.Scene();
-	// scene.background = new THREE.Color( 0xffffff );
-	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-	camera.position.z = cameraOrbitRadius;
-	camera.lookAt( scene.position );
-
-	renderer = new THREE.WebGLRenderer( {
-		canvas: document.getElementById( 'canvas-bg' ),
-		alpha: true
-	} );
-	renderer.setClearColor( 0xffffff, 0 );
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.body.appendChild( renderer.domElement );
-
-	// let geometry = new THREE.BoxGeometry( 1, 6, 1 );
-	// let meshMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-	// let wireFrameMat = new THREE.MeshBasicMaterial();
-	// wireFrameMat.wireframe = true;
-	// let cube = THREE.SceneUtils.createMultiMaterialObject( geometry, [ meshMaterial, wireFrameMat ] );
-	// scene.add( cube );
-	logo = new LOGO.LogoThirteen();
-	scene.add( logo.componentGroup );
-	window.custom_logo = logo;
-
-	// Add listeners
-	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-	document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-	window.addEventListener( 'resize', onWindowResize, false );
-}
-
-
-function animate() {
-	requestAnimationFrame( animate );
-
-	camera.position.x = cameraOrbitRadius * Math.sin( Math.PI / 2 * mouseXPortion );
-	camera.position.z = cameraOrbitRadius * Math.cos( Math.PI / 2 * mouseXPortion );
-	camera.position.y = -cameraOrbitRadius * Math.sin( Math.PI / 2 * mouseYPortion );
-	camera.lookAt( scene.position );
-
-	renderer.render( scene, camera );
-};
-
-
-
-//---------------------------------------------------------------//
-// Events
-//---------------------------------------------------------------//
-function onWindowResize() {
-	windowHalfX = window.innerWidth / 2;
-	windowHalfY = window.innerHeight / 2;
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-}
-//
-function onDocumentMouseMove( event ) {
-	mouseX = event.clientX - windowHalfX;
-	mouseY = event.clientY - windowHalfY;
-	mouseXPortion = mouseX / windowHalfX;
-	mouseYPortion = mouseY / windowHalfY;
-
-	// console.log( 'X: ' + mouseXPortion + ' Y: ' + mouseYPortion );
-}
-
-function onDocumentTouchStart( event ) {
-	if ( event.touches.length > 1 ) {
-		event.preventDefault();
-		mouseX = event.touches[ 0 ].pageX - windowHalfX;
-		mouseY = event.touches[ 0 ].pageY - windowHalfY;
-		mouseXPortion = mouseX / windowHalfX;
-		mouseYPortion = mouseY / windowHalfY;
-	}
-}
-
-function onDocumentTouchMove( event ) {
-	if ( event.touches.length == 1 ) {
-		event.preventDefault();
-		mouseX = event.touches[ 0 ].pageX - windowHalfX;
-		mouseY = event.touches[ 0 ].pageY - windowHalfY;
-		mouseXPortion = mouseX / windowHalfX;
-		mouseYPortion = mouseY / windowHalfY;
-	}
 }
