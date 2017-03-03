@@ -7003,9 +7003,10 @@ router-link:visited {
   text-decoration: none;
 }
 nav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 99;
 }
 nav ul {
   list-style-type: none;
@@ -7052,4 +7053,7 @@ nav li router-link.selected {
 .component-enter,
 .component-leave-to {
   opacity: 0;
+}
+.component {
+  margin-bottom: 50px;
 }

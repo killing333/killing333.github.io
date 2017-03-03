@@ -1,5 +1,5 @@
 <template>
-   <div id="about">Full stack developer</div>
+   <div id="component-about" class="component">Full stack developer</div>
 </template>
 
 <script>

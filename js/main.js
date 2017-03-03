@@ -1,16 +1,21 @@
 require( 'js/plugins.js' );
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import * as _ from 'lodash';
+import Vue from 'vue/dist/vue.js';
+import VueRouter from 'vue-router';
+import VueFire from 'vuefire';
 // const Vue = require( 'vue' );
 // const VueRouter = require( 'vue-router' );
 import * as bootstrap from 'bootstrap';
 import * as THREE from 'three';
+
 const Detector = require( 'js/detector.js' );
 const LOGO = require( 'js/logo.js' );
-const router = null;
+const vueApp = null;
+const vueRouter = null;
 
 // Init firebase
-var config = {
+let config = {
 	apiKey: "AIzaSyBwIpst2CGy9DNqLoHlGl8fjYJpKJNF1I0",
 	authDomain: "th1rt3en-b55a4.firebaseapp.com",
 	databaseURL: "https://th1rt3en-b55a4.firebaseio.com",
@@ -21,26 +26,28 @@ firebase.initializeApp( config );
 
 // Init vue
 Vue.use( VueRouter );
+Vue.use( VueFire );
 initRouting();
 
 if ( Detector.webgl ) {
 	LOGO.init();
 } else {
-	var warning = Detector.getWebGLErrorMessage();
+	let warning = Detector.getWebGLErrorMessage();
 	document.getElementById( 'container' ).appendChild( warning );
 }
-firebase.auth().onAuthStateChanged( function( user ) {
-	if ( user ) {
+firebase.auth().onAuthStateChanged( function( auth ) {
+	if ( auth ) {
 		// User is signed in.
 		// Works.login = true;/
-		router;
+		vueApp.auth = true;
 		console.log( 'User is signed in.' );
 	} else {
 		// No user is signed in.
 		// Works.login = false;/
-		router;
+		vueApp.auth = false;
 		console.log( 'No User is signed in.' );
 	}
+
 } );
 window.firebase = firebase;
 
@@ -52,10 +59,12 @@ window.firebase = firebase;
 function initRouting() {
 
 	// Define some routes and create the router instance and pass the `routes` option
-	router = new VueRouter( {
+	vueRouter = new VueRouter( {
 		routes: [ {
 				path: '/',
-				redirect: { name: 'about' }
+				redirect: {
+					name: 'about'
+				}
 			}, {
 				path: '/about',
 				name: 'about',
@@ -65,7 +74,9 @@ function initRouting() {
 				path: '/works',
 				name: 'works',
 				component: require( 'components/Works.vue' ),
-				props: ( route ) => ( { login: ( firebase.auth().currentUser !== null ) } )
+				props: {
+					auth: true
+				}
 			}
 		]
 	} )
@@ -73,7 +84,10 @@ function initRouting() {
 	// 4. Create and mount the root instance.
 	// Make sure to inject the router with the router option to make the
 	// whole app router-aware.
-	let app = new Vue( {
-		router: router
+	vueApp = new Vue( {
+		router: vueRouter,
+		data: {
+			auth: false,
+		}
 	} ).$mount( '#app' )
 }
