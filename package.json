@@ -1,40 +1,42 @@
 {
-    "name": "th1rt3en",
-    "version": "1.0.0",
-    "description": "Nothing here",
-    "main": "index.js",
-    "directories": {
-        "doc": "doc"
-    },
-    "scripts": {
-        "build": "lessc css/main.less dist/main.css && webpack --config webpack.config.js",
-        "build-prod": "lessc --clean-css=\"advanced\" css/main.less dist/main.css && webpack --config webpack.config.js -p",
-        "start": "http-server"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "babel-core": "^6.22.1",
-        "babel-loader": "^6.2.10",
-        "babel-preset-env": "^1.1.8",
-        "bootstrap": "^3.3.7",
-        "css-loader": "^0.26.1",
-        "firebase": "^3.6.9",
-        "http-server": "^0.9.0",
-        "jquery": "^3.1.1",
-        "less": "^2.7.2",
-        "less-loader": "^2.2.3",
-        "less-plugin-clean-css": "^1.5.1",
-        "lodash": "^4.17.4",
-        "three": "^0.84.0",
-        "vue": "^2.1.10",
-        "vue-loader": "^11.0.0",
-        "vue-router": "^2.2.1",
-        "vue-template-compiler": "^2.1.10",
-        "vuefire": "^1.3.1",
-        "webpack": "^2.2.1"
-    },
-    "dependencies": {
-        "firebase": "^3.6.9"
-    }
+  "name": "th1rt3en",
+  "version": "1.0.0",
+  "description": "Nothing here",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "build": "lessc css/main.less dist/main.css && webpack --config webpack.config.js",
+    "build-prod": "lessc --clean-css=\"advanced\" css/main.less dist/main.css && webpack --config webpack.config.js -p",
+    "start": "http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.8",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.26.1",
+    "firebase": "^3.6.9",
+    "http-server": "^0.9.0",
+    "jquery": "^3.1.1",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "less-plugin-clean-css": "^1.5.1",
+    "lodash": "^4.17.4",
+    "three": "^0.84.0",
+    "vue": "^2.1.10",
+    "vue-loader": "^11.0.0",
+    "vue-router": "^2.2.1",
+    "vue-template-compiler": "^2.1.10",
+    "vuefire": "^1.3.1",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "firebase": "^3.6.9",
+    "imagesloaded": "^4.1.1",
+    "isotope-layout": "^3.0.2"
+  }
 }

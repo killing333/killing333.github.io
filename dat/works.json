@@ -1,0 +1,20 @@
+{
+    "lite": {
+        "activbeats": {
+            "title": "ActivBeats",
+            "cover": "/img/works/activbeats/screen696x696.jpeg",
+            "platforms": ["ios"],
+            "tags": ["FMDB", "Bolts"],
+            "order": 1,
+            "hidden": false
+        }
+    },
+    "detail": {
+        "activbeats": {
+            "date_end": "December 2015",
+            "date_start": "June 2015",
+            "description": "ActivBeats™ by WBD101 is a fitness tracker apps that tracks the cardiovascular activities such as Running, Jogging, Cycling (Indoor) and Cycling.",
+            "link": "https://itunes.apple.com/app/activbeats/id1156748029?mt=8"
+        }
+    }
+}
