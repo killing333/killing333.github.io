@@ -74,7 +74,6 @@ module.exports = {
 #component-works {
     font-size: 26px;
     text-align: left;
-    background-color: rgba(255, 255, 255, 0.7);
 }
 
 #component-works-btn-new {}
@@ -82,7 +81,6 @@ module.exports = {
 #component-works-create {
     position: absolute;
     width: 50%;
-    background-color: rgba(255, 255, 255, 0.7);
 }
 #list-works {
     list-style-type: none;
