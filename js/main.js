@@ -77,6 +77,11 @@ function initRouting() {
 				props: {
 					auth: true
 				}
+			},
+			{
+				path: '/works/:id',
+				name: 'work',
+				component: require( 'components/Work.vue' ),
 			}
 		]
 	} )

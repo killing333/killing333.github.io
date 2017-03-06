@@ -7057,4 +7057,7 @@ nav li router-link.selected {
 }
 .component {
   margin-bottom: 50px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
