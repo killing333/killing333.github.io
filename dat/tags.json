@@ -1,0 +1,19 @@
+{
+    "fmdb": {
+        "name": "FMDB",
+        "link": "https://github.com/ccgus/fmdb"
+    },
+    "bolts-objc": {
+        "name": "Bolts-ObjC",
+        "link": "https://github.com/BoltsFramework/Bolts-ObjC"
+    },
+    "sqlite": {
+        "name": "SQLite"
+    },
+    "dynamo_db": {
+        "name": "Amazon DynamoDB"
+    },
+    "core_bluetooth": {
+        "name": "Core Bluetooth"
+    }
+}

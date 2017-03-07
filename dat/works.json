@@ -2,9 +2,10 @@
     "lite": {
         "activbeats": {
             "title": "ActivBeats",
-            "cover": "/img/works/activbeats/screen696x696.jpeg",
+            "cover": "/img/works/activbeats/screen00-696x696.jpeg",
+            "icon": "/img/works/activbeats/icon-350x350bb.jpg",
             "platforms": ["ios"],
-            "tags": ["FMDB", "Bolts"],
+            "tags": ["core_bluetooth", "sqlite", "fmdb", "dynamo_db", "bolts-objc"],
             "order": 1,
             "hidden": false
         }
@@ -13,8 +14,15 @@
         "activbeats": {
             "date_end": "December 2015",
             "date_start": "June 2015",
-            "description": "ActivBeats™ by WBD101 is a fitness tracker apps that tracks the cardiovascular activities such as Running, Jogging, Cycling (Indoor) and Cycling.",
-            "link": "https://itunes.apple.com/app/activbeats/id1156748029?mt=8"
+            "description": "ActivBeats™ by WBD101 is a fitness tracker apps that tracks the cardiovascular activities such as Running, Jogging, Cycling (Indoor) and Cycling.<br><br>It tracks your activities including distance, time, speed, elevation, calories burned &amp; heart rate) and can share your results to social media. <br><br>The uniqueness of this apps include the Heart Rate Zone tracking and VO2max testing. <br><br>Heart Rate Zone tracking allows you to maintain your exercise intensity to keep within the Fat Burn Zone, Muscle Build Zone or the Anaerobic Zone, so as to either get the maximum exercise benefit or avoid over exertion. <br><br>The VO2max test is a very useful 3 minute Alternate Knee Raise test that will indicate the maximum or optimum rate at which the heart, lungs, and muscles can effectively use oxygen during exercise, this is a very good indication of your fitness level and even longevity and is based on a scientific paper published by Prof Stanley Hui, Chinese University of Hong Kong and Fellow of the American College of Sports Medicine.",
+            "link": {
+                "ios": "https://itunes.apple.com/app/activbeats/id1156748029?mt=8"
+            },
+            "images": [
+                "/img/works/activbeats/screen00-696x696.jpeg",
+                "/img/works/activbeats/screen01-696x696.jpeg",
+                "/img/works/activbeats/screen02-696x696.jpeg"
+            ]
         }
     }
 }

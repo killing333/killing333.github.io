@@ -68,8 +68,7 @@ module.exports = {
 }
 </script>
 
-<style lang="less">
-@import "../css/theme";
+<style lang="less">@import "../css/theme";
 
 #component-works {
     font-size: 26px;
@@ -105,23 +104,6 @@ module.exports = {
         }
 
         .work-icon {}
-
-        .platform-icon {
-            @icon-width: 48px;
-            @icon-height: @icon-width;
-
-            display: inline-block;
-            margin: 0;
-            width: @icon-width;
-            height: @icon-height;
-
-            svg {
-                width: @icon-width;
-                height: @icon-height;
-                margin-bottom: 18px;
-                fill: @theme-color-1;
-            }
-        }
 
         .work-date {
             font-size: 19px;
