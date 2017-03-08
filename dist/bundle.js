@@ -87040,7 +87040,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('a', {
       staticClass: "platform-icon hidden-print",
       attrs: {
-        "href": _vm.work.link[platform],
+        "href": _vm.work.link !== null && typeof _vm.work.link === 'object' ? _vm.work.link[platform] : '#',
         "target": "_blank"
       }
     }, [(platform === 'ios') ? _c('svg', {

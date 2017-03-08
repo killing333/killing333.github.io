@@ -6,9 +6,19 @@
             "icon": "/img/works/activbeats/icon-350x350bb.jpg",
             "platforms": ["ios"],
             "tags": ["core_bluetooth", "sqlite", "fmdb", "dynamo_db", "bolts-objc"],
+            "order": 2,
+            "hidden": false
+        },
+        "mgia": {
+            "title": "MGIA",
+            "cover": "/img/works/mgia/750x1334_Chi.png",
+            "icon": "/img/works/mgia/icon-512x512.png",
+            "platforms": ["ios"],
+            "tags": ["socketio", "sqlite", "fmdb", "bolts-objc", "reactivecocoa"],
             "order": 1,
             "hidden": false
         }
+
     },
     "detail": {
         "activbeats": {
@@ -22,6 +32,20 @@
                 "/img/works/activbeats/screen00-696x696.jpeg",
                 "/img/works/activbeats/screen01-696x696.jpeg",
                 "/img/works/activbeats/screen02-696x696.jpeg"
+            ]
+        },
+        "mgia": {
+            "date_start": "August 2015",
+            "description": "Official app for Macau Gaming Information Association providing gaming related news in Macau and around the world.",
+            "link": {
+                "ios": "https://itunes.apple.com/app/ao-men-bo-cai-zi-xun-xie-hui/id1030337540?mt=8"
+            },
+            "images": [
+                "/img/works/mgia/750x1334_Chi.png",
+                "/img/works/mgia/IMG_3110.PNG",
+                "/img/works/mgia/IMG_3112.PNG",
+                "/img/works/mgia/IMG_3113.PNG",
+                "/img/works/mgia/IMG_3114.PNG"
             ]
         }
     }
