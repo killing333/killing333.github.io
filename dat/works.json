@@ -1,12 +1,38 @@
 {
     "lite": {
+        "colors": {
+            "title": "Colors",
+            "logo": "https://raw.githubusercontent.com/killing333/Colors/master/Icon%402x.png",
+            "platforms": ["ios"],
+            "tags": ["cocos2dx"],
+            "order": 3,
+            "hidden": false
+        },
+        "man_qian_meng": {
+            "title": "Man Qian Meng",
+            "cover": "/img/works/man_qian_meng_ios/cover.png",
+            "icon": "/img/works/man_qian_meng/logo.png",
+            "platforms": ["web"],
+            "tags": ["php", "codeigniter", "jquery", "jquery_ui", "jquery_validation", "URI_js", "responsive_slides_js", "less"],
+            "order": 4,
+            "hidden": false
+        },
+        "man_qian_meng_ios": {
+            "title": "Man Qian Meng iOS",
+            "cover": "/img/works/man_qian_meng_ios/cover.png",
+            "icon": "/img/works/man_qian_meng_ios/icon-350x350bb.jpg",
+            "platforms": ["ios"],
+            "tags": ["facebook", "wechat", "masonry"],
+            "order": 5,
+            "hidden": false
+        },
         "activbeats": {
             "title": "ActivBeats",
             "cover": "/img/works/activbeats/screen00-696x696.jpeg",
             "icon": "/img/works/activbeats/icon-350x350bb.jpg",
             "platforms": ["ios"],
-            "tags": ["core_bluetooth", "sqlite", "fmdb", "dynamo_db", "bolts-objc"],
-            "order": 2,
+            "tags": ["core_bluetooth", "sqlite", "fmdb", "dynamo_db", "bolts-objc", "masonry"],
+            "order": 6,
             "hidden": false
         },
         "mgia": {
@@ -14,13 +40,35 @@
             "cover": "/img/works/mgia/750x1334_Chi.png",
             "icon": "/img/works/mgia/icon-512x512.png",
             "platforms": ["ios"],
-            "tags": ["socketio", "sqlite", "fmdb", "bolts-objc", "reactivecocoa"],
-            "order": 1,
+            "tags": ["socketio", "sqlite", "fmdb", "bolts-objc", "reactivecocoa", "facebook", "wechat", "masonry"],
+            "order": 7,
             "hidden": false
         }
-
     },
     "detail": {
+        "mgia": {
+            "date_start": "August 2015",
+            "description": "Official app for Macau Gaming Information Association providing gaming related news in Macau and around the world.",
+            "link": {
+                "ios": "https://itunes.apple.com/app/ao-men-bo-cai-zi-xun-xie-hui/id1030337540?mt=8"
+            },
+            "images": [{
+                "link": "/img/works/mgia/750x1334_Chi.png",
+                "size": "sm"
+            }, {
+                "link": "/img/works/mgia/IMG_3110.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/mgia/IMG_3112.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/mgia/IMG_3113.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/mgia/IMG_3114.PNG",
+                "size": "sm"
+            }]
+        },
         "activbeats": {
             "date_end": "December 2015",
             "date_start": "June 2015",
@@ -28,25 +76,76 @@
             "link": {
                 "ios": "https://itunes.apple.com/app/activbeats/id1156748029?mt=8"
             },
-            "images": [
-                "/img/works/activbeats/screen00-696x696.jpeg",
-                "/img/works/activbeats/screen01-696x696.jpeg",
-                "/img/works/activbeats/screen02-696x696.jpeg"
-            ]
+            "images": [{
+                "link": "/img/works/activbeats/screen00-696x696.jpeg",
+                "size": "sm"
+            }, {
+                "link": "/img/works/activbeats/screen01-696x696.jpeg",
+                "size": "sm"
+            }, {
+                "link": "/img/works/activbeats/screen02-696x696.jpeg",
+                "size": "sm"
+            }]
         },
-        "mgia": {
-            "date_start": "August 2015",
-            "description": "Official app for Macau Gaming Information Association providing gaming related news in Macau and around the world.",
+        "man_qian_meng_ios": {
+            "date_end": "August 2015",
+            "date_start": "September 2013",
+            "description": "A fashion e-commerce platform. All products data directly comes from providers all around the world. User can place order easily through the app and socialize by their created outfit.",
             "link": {
-                "ios": "https://itunes.apple.com/app/ao-men-bo-cai-zi-xun-xie-hui/id1030337540?mt=8"
+                "ios": "https://itunes.apple.com/app/man-qian-meng-lite/id943351438"
             },
-            "images": [
-                "/img/works/mgia/750x1334_Chi.png",
-                "/img/works/mgia/IMG_3110.PNG",
-                "/img/works/mgia/IMG_3112.PNG",
-                "/img/works/mgia/IMG_3113.PNG",
-                "/img/works/mgia/IMG_3114.PNG"
-            ]
+            "images": [{
+                "link": "/img/works/man_qian_meng_ios/cover.png",
+                "size": "sm"
+            }, {
+                "link": "/img/works/man_qian_meng_ios/IMG_3117.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/man_qian_meng_ios/IMG_3116.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/man_qian_meng_ios/IMG_3118.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/man_qian_meng_ios/IMG_3119.PNG",
+                "size": "sm"
+            }, {
+                "link": "/img/works/man_qian_meng_ios/IMG_3120.PNG",
+                "size": "sm"
+            }]
+        },
+        "man_qian_meng": {
+            "date_end": "August 2015",
+            "date_start": "September 2013",
+            "description": "A fashion e-commerce platform. All products data directly comes from providers all around the world. User can place order easily through the app and socialize by their created outfit.",
+            "link": {
+                "web": "http://www.manqianmeng.com/"
+            },
+            "images": [{
+                "link": "/img/works/man_qian_meng/screen01.png",
+                "size": "lg"
+            }, {
+                "link": "/img/works/man_qian_meng/screen02.png",
+                "size": "lg"
+            }, {
+                "link": "/img/works/man_qian_meng/screen03.png",
+                "size": "lg"
+            }]
+        },
+        "colors": {
+            "date_start": "March 2013",
+            "date_end": "June 2013",
+            "description": "Side-scroller shooting time-killer game aimed on iOS platform and further on Android and Windows Phone. Powered by Cocos2d-x.",
+            "images": [{
+                "link": "/img/works/man_qian_meng/screen01.png",
+                "size": "lg"
+            }, {
+                "link": "/img/works/man_qian_meng/screen02.png",
+                "size": "lg"
+            }, {
+                "link": "/img/works/man_qian_meng/screen03.png",
+                "size": "lg"
+            }]
         }
     }
 }

@@ -24,13 +24,17 @@
         </form>
     </div>
 
-    <div id="list-works" class="row">
-        <div v-for="item in works" class="col-md-4">
+    <ul id="list-works">
+        <li v-for="item in worksReversed">
             <a class="item" v-bind:href="'#' + $route.fullPath + '/' + item['.key']">
-                <img v-bind:src="item.cover" v-bind:alt="item.title" class="work-cover">
+                <img v-bind:src="item.icon" v-bind:alt="item.title" class="work-cover">
             </a>
+        </li>
+    </ul>
+    <!-- <div id="list-works" class="row">
+        <div v-for="item in works" class="col-md-3">
         </div>
-    </div>
+    </div> -->
 </div>
 </template>
 
@@ -42,6 +46,11 @@ module.exports = {
         return {
             worksCreateShown: false,
             login: false
+        }
+    },
+    computed: {
+        worksReversed: function() {
+            return works.slice().reverse();
         }
     },
     methods: {
@@ -84,9 +93,15 @@ module.exports = {
 #list-works {
     list-style-type: none;
     padding: 0;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        margin: 12px;
+    }
 
     .item {
-        border: 1px solid #c3c3c3;
+        width: 200px;
         display: block;
 
         .work-cover {

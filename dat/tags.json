@@ -23,5 +23,49 @@
     "reactivecocoa": {
         "name": "ReactiveCocoa",
         "link": "https://github.com/ReactiveCocoa"
+    },
+    "facebook": {
+        "name": "Facebook SDK",
+        "link": "https://developers.facebook.com/docs/ios"
+    },
+    "wechat": {
+        "name": "Wechat SDK",
+        "link": "https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list"
+    },
+    "masonry": {
+        "name": "Masonry",
+        "link": "https://github.com/SnapKit/Masonry"
+    },
+    "php": {
+        "name": "PHP",
+        "link": "http://php.net/"
+    },
+    "codeigniter": {
+        "name": "CodeIgniter",
+        "link": "https://codeigniter.com/"
+    },
+    "jquery": {
+        "name": "jQuery",
+        "link": "https://jquery.com/"
+    },
+    "jquery_ui": {
+        "name": "jQuery UI",
+        "link": "http://jqueryui.com/"
+    },
+    "jquery_validation": {
+        "name": "jQuery Validation",
+        "link": "https://github.com/jquery-validation/jquery-validation"
+    },
+    "URI_js": {
+        "name": "URI.js",
+        "link": "https://github.com/medialize/URI.js/"
+    },
+    "responsive_slides_js": {
+        "name": "ResponsiveSlides.js",
+        "link": "https://github.com/viljamis/ResponsiveSlides.js"
+    },
+    "less": {
+        "name": "LESS",
+        "link": "http://lesscss.org/"
     }
 }

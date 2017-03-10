@@ -34,7 +34,7 @@
         <p id="work-description" v-html="work.description"></p>
         <ul id="work-images">
             <li v-for="(image, index) in work.images">
-                <img v-bind:src="image" alt="image">
+                <img v-bind:src="image.link" v-bind:class="image.size" alt="image">
             </li>
         </ul>
 
@@ -146,17 +146,22 @@ module.exports = {
     list-style-type: none;
     padding: 0;
     margin-top: 60px;
-    margin-bottom: 120px;
     text-align: center;
 
     li {
         display: inline-block;
-        margin-left: 6px;
-        margin-right: 6px;
+        margin: 6px;
 
         img {
-            max-width: 300px;
+            max-width: 280px;
             border: 1px solid rgba(195, 195, 195, 0.3);
+
+            &.sm {
+                max-width: 280px;
+            }
+            &.lg {
+                max-width: 100%;
+            }
         }
     }
 }

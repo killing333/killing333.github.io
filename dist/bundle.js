@@ -83537,6 +83537,11 @@ module.exports = {
             login: false
         };
     },
+    computed: {
+        worksReversed: function worksReversed() {
+            return works.slice().reverse();
+        }
+    },
     methods: {
         onAuthStateChanged: function onAuthStateChanged(auth) {
             this.login = auth;
@@ -83559,6 +83564,10 @@ module.exports = {
         //   firebase.auth.onAuthStateChanged(this.onAuthStateChanged);
     }
 }; //
+//
+//
+//
+//
 //
 //
 //
@@ -86036,7 +86045,7 @@ exports = module.exports = __webpack_require__(4)();
 
 
 // module
-exports.push([module.i, "\n#component-works {\n  font-size: 26px;\n  text-align: left;\n}\n#component-works-create {\n  position: absolute;\n  width: 50%;\n}\n#list-works {\n  list-style-type: none;\n  padding: 0;\n}\n#list-works .item {\n  border: 1px solid #c3c3c3;\n  display: block;\n}\n#list-works .item .work-cover {\n  width: 100%;\n  height: auto;\n}\n#list-works .item .work-title {\n  font-size: 40px;\n  margin-bottom: 4px;\n}\n#list-works .item .work-description {\n  margin-top: 20px;\n  font-size: 23px;\n}\n#list-works .item .work-date {\n  font-size: 19px;\n  color: #c3c3c3;\n}\n", ""]);
+exports.push([module.i, "\n#component-works {\n  font-size: 26px;\n  text-align: left;\n}\n#component-works-create {\n  position: absolute;\n  width: 50%;\n}\n#list-works {\n  list-style-type: none;\n  padding: 0;\n  text-align: center;\n}\n#list-works li {\n  display: inline-block;\n  margin: 12px;\n}\n#list-works .item {\n  width: 200px;\n  display: block;\n}\n#list-works .item .work-cover {\n  width: 100%;\n  height: auto;\n}\n#list-works .item .work-title {\n  font-size: 40px;\n  margin-bottom: 4px;\n}\n#list-works .item .work-description {\n  margin-top: 20px;\n  font-size: 23px;\n}\n#list-works .item .work-date {\n  font-size: 19px;\n  color: #c3c3c3;\n}\n", ""]);
 
 // exports
 
@@ -86064,7 +86073,7 @@ exports = module.exports = __webpack_require__(4)();
 
 
 // module
-exports.push([module.i, "\n.work-icon {\n  width: 100%;\n}\n.work-title {\n  font-size: 52px;\n}\n.platform-icon {\n  display: inline-block;\n  margin: 0;\n  width: 48px;\n  height: 48px;\n}\n.platform-icon svg {\n  width: 48px;\n  height: 48px;\n  margin-bottom: 18px;\n  fill: #3c3c3c;\n}\n#work-categories,\n#work-tags {\n  display: inline-block;\n  list-style-type: none;\n  padding: 0;\n  margin-bottom: 30px;\n}\n#work-categories li,\n#work-tags li {\n  display: inline-block;\n}\n#work-categories li a,\n#work-tags li a {\n  display: block;\n  padding: 3px 6px;\n  border: 1px solid #6b6b6b;\n  border-radius: 3px;\n  margin-right: 6px;\n  color: #6b6b6b;\n}\n#work-categories li a:hover,\n#work-tags li a:hover {\n  border-color: black;\n  color: black;\n}\n#work-description {\n  font-size: 18px;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n#work-images {\n  list-style-type: none;\n  padding: 0;\n  margin-top: 60px;\n  margin-bottom: 120px;\n  text-align: center;\n}\n#work-images li {\n  display: inline-block;\n  margin-left: 6px;\n  margin-right: 6px;\n}\n#work-images li img {\n  max-width: 300px;\n  border: 1px solid rgba(195, 195, 195, 0.3);\n}\n", ""]);
+exports.push([module.i, "\n.work-icon {\n  width: 100%;\n}\n.work-title {\n  font-size: 52px;\n}\n.platform-icon {\n  display: inline-block;\n  margin: 0;\n  width: 48px;\n  height: 48px;\n}\n.platform-icon svg {\n  width: 48px;\n  height: 48px;\n  margin-bottom: 18px;\n  fill: #3c3c3c;\n}\n#work-categories,\n#work-tags {\n  display: inline-block;\n  list-style-type: none;\n  padding: 0;\n  margin-bottom: 30px;\n}\n#work-categories li,\n#work-tags li {\n  display: inline-block;\n}\n#work-categories li a,\n#work-tags li a {\n  display: block;\n  padding: 3px 6px;\n  border: 1px solid #6b6b6b;\n  border-radius: 3px;\n  margin-right: 6px;\n  color: #6b6b6b;\n}\n#work-categories li a:hover,\n#work-tags li a:hover {\n  border-color: black;\n  color: black;\n}\n#work-description {\n  font-size: 18px;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n#work-images {\n  list-style-type: none;\n  padding: 0;\n  margin-top: 60px;\n  text-align: center;\n}\n#work-images li {\n  display: inline-block;\n  margin: 6px;\n}\n#work-images li img {\n  max-width: 280px;\n  border: 1px solid rgba(195, 195, 195, 0.3);\n}\n#work-images li img.sm {\n  max-width: 280px;\n}\n#work-images li img.lg {\n  max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -86917,15 +86926,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "component-works-create"
     }
-  }, [_vm._m(0)]), _vm._v(" "), _c('div', {
-    staticClass: "row",
+  }, [_vm._m(0)]), _vm._v(" "), _c('ul', {
     attrs: {
       "id": "list-works"
     }
-  }, _vm._l((_vm.works), function(item) {
-    return _c('div', {
-      staticClass: "col-md-4"
-    }, [_c('a', {
+  }, _vm._l((_vm.worksReversed), function(item) {
+    return _c('li', [_c('a', {
       staticClass: "item",
       attrs: {
         "href": '#' + _vm.$route.fullPath + '/' + item['.key']
@@ -86933,7 +86939,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "work-cover",
       attrs: {
-        "src": item.cover,
+        "src": item.icon,
         "alt": item.title
       }
     })])])
@@ -87127,8 +87133,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.work.images), function(image, index) {
     return _c('li', [_c('img', {
+      class: image.size,
       attrs: {
-        "src": image,
+        "src": image.link,
         "alt": "image"
       }
     })])
