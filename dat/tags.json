@@ -67,5 +67,25 @@
     "less": {
         "name": "LESS",
         "link": "http://lesscss.org/"
+    },
+    "vue_js": {
+        "name": "vue.js",
+        "link": "https://vuejs.org/"
+    },
+    "three_js": {
+        "name": "three.js",
+        "link": "https://threejs.org/"
+    },
+    "webpack": {
+        "name": "webpack",
+        "link": "https://webpack.js.org/"
+    },
+    "babel": {
+        "name": "Babel",
+        "link": "https://babeljs.io/"
+    },
+    "lodash": {
+        "name": "Lodash",
+        "link": "https://lodash.com/"
     }
 }

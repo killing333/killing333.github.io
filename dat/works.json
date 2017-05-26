@@ -2,11 +2,10 @@
     "lite": {
         "colors": {
             "title": "Colors",
-            "logo": "https://raw.githubusercontent.com/killing333/Colors/master/Icon%402x.png",
+            "logo": "/img/works/colors/Icon-ipad@2x.png",
             "platforms": ["ios"],
             "tags": ["cocos2dx"],
-            "order": 3,
-            "hidden": false
+            "order": -1
         },
         "man_qian_meng": {
             "title": "Man Qian Meng",
@@ -14,8 +13,7 @@
             "icon": "/img/works/man_qian_meng/logo.png",
             "platforms": ["web"],
             "tags": ["php", "codeigniter", "jquery", "jquery_ui", "jquery_validation", "URI_js", "responsive_slides_js", "less"],
-            "order": 4,
-            "hidden": false
+            "order": 999
         },
         "man_qian_meng_ios": {
             "title": "Man Qian Meng iOS",
@@ -23,8 +21,7 @@
             "icon": "/img/works/man_qian_meng_ios/icon-350x350bb.jpg",
             "platforms": ["ios"],
             "tags": ["facebook", "wechat", "masonry"],
-            "order": 5,
-            "hidden": false
+            "order": 998
         },
         "activbeats": {
             "title": "ActivBeats",
@@ -32,8 +29,7 @@
             "icon": "/img/works/activbeats/icon-350x350bb.jpg",
             "platforms": ["ios"],
             "tags": ["core_bluetooth", "sqlite", "fmdb", "dynamo_db", "bolts-objc", "masonry"],
-            "order": 6,
-            "hidden": false
+            "order": 997
         },
         "mgia": {
             "title": "MGIA",
@@ -41,9 +37,17 @@
             "icon": "/img/works/mgia/icon-512x512.png",
             "platforms": ["ios"],
             "tags": ["socketio", "sqlite", "fmdb", "bolts-objc", "reactivecocoa", "facebook", "wechat", "masonry"],
-            "order": 7,
-            "hidden": false
+            "order": 996
+        },
+        "th1rt3en": {
+            "title": "Th1rt3en",
+            "cover": "",
+            "icon": "/img/works/th1rt3en/icon-250x250.png",
+            "platforms": ["web"],
+            "tags": ["firebase", "vue_js", "three_js", "webpack", "babel", "jquery", "lodash", "less"],
+            "order": 995
         }
+
     },
     "detail": {
         "mgia": {
@@ -146,6 +150,14 @@
                 "link": "/img/works/man_qian_meng/screen03.png",
                 "size": "lg"
             }]
+        },
+        "th1rt3en": {
+            "date_start": "March 2017",
+            "description": "This website.",
+            "link": {
+                "web": "http://th1rt3en.github.io/"
+            },
+            "images": []
         }
     }
 }

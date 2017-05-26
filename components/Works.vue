@@ -25,7 +25,7 @@
     </div>
 
     <ul id="list-works">
-        <li v-for="item in worksReversed">
+        <li v-for="item in works">
             <a class="item" v-bind:href="'#' + $route.fullPath + '/' + item['.key']">
                 <img v-bind:src="item.icon" v-bind:alt="item.title" class="work-cover">
             </a>
@@ -40,6 +40,7 @@
 
 <script>
 import firebase from 'firebase';
+import _ from 'lodash';
 
 module.exports = {
     data: function() {
@@ -48,11 +49,7 @@ module.exports = {
             login: false
         }
     },
-    computed: {
-        worksReversed: function() {
-            return works.slice().reverse();
-        }
-    },
+    computed: {},
     methods: {
         onAuthStateChanged: function(auth) {
             this.login = auth;
@@ -63,7 +60,7 @@ module.exports = {
     },
     props: ['auth'],
     firebase: {
-        works: firebase.database().ref('works').child('lite').orderByChild('order')
+        works: firebase.database().ref('works').child('lite').orderByChild('order').startAt(0),
     },
     created() {
         //   let worksRef = firebase.database().ref('works');
