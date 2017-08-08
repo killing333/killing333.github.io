@@ -49,10 +49,8 @@ var app4 = new Vue( {
 
 $( window ).resize( function() {
 	$( '#section-front' ).css( {
-		height: $( window ).height() + 'px'
-	} );
-	$( '#front-subtitle' ).css( {
-		'margin-top': ( $( window ).height() / 2 + 120 ) + 'px'
+		'height': $( window ).height() + 'px',
+		'padding-top': ( $( window ).height() / 2 + 120 ) + 'px'
 	} );
 } )
 $( window ).resize()
