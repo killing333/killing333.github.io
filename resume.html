@@ -11,7 +11,7 @@
    <link rel="apple-touch-icon" href="apple-touch-icon.png">
    <!-- Place favicon.ico in the root directory -->
 
-   <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+   <link rel="stylesheet" media="all" href="dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="dist/css/font.css">
    <link rel="stylesheet" href="dist/css/resume.css">
 </head>
@@ -33,19 +33,81 @@
                   <td>
                      <div class="info-detail">{{info.email}}</div>
                      <div class="info-detail">{{info.phone}}</div>
+                     <div class="info-detail"><a :href="info.linkedin" target="_blank">{{info.linkedin}}</a></div>
                   </td>
                </tr>
             </tbody>
          </table>
-         <div class="info-description">
-            <p>Some fucking long annoying description. Some fucking long annoying description. Some fucking long annoying description. Some fucking long annoying description. Some fucking long annoying description. </p>
+         <div class="info-description" v-if="info.description">
          </div>
       </div>
-      <div id="section-works">
+      <div id="section-works" class="section">
          <h2>Works</h2>
-         <ul>
-            <li></li>
-         </ul>
+         <div class="row-work" v-for="work in works">
+            <div class="row">
+               <div class="work-icon col-xs-2">
+                  <img :src="work.icon" alt="">
+               </div>
+               <div class="work-info col-xs-10">
+                  <h2>{{work.title}}</h2>
+                  <span v-if="work.subtitle">{{work.subtitle}}</span>
+                  <p v-html="work.description"></p>
+                  <ol>
+                     <li v-for="link in work.links">
+                        <a :href="link.url" target="_blank">{{link.url}}</a>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="work-images" style="display: none;">
+               <img v-for="img in work.images" :src="img.url" alt="">
+            </div>
+         </div>
+      </div>
+      <div id="section-exps" class="section">
+         <h2>Experiences</h2>
+         <div class="row-exp" v-for="exp in experiences">
+            <div class="row">
+               <div class="exp-info col-xs-12">
+                  <div class="row-header">
+                     <h3>{{exp.title}} - {{exp.company}}</h3>
+                     <span v-if="exp.dateFrom">{{exp.dateFrom}}</span>
+                     <span v-if="exp.dateTo"> - {{exp.dateTo}}</span>
+                  </div>
+                  <div class="row-content">
+                     <p v-if="exp.description" v-html="exp.description"></p>
+                     <ul>
+                        <li v-for="respon in exp.responsibilities">
+                           {{respon}}
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="section-educations" class="section">
+         <h2>Educations</h2>
+         <div class="row-edu" v-for="edu in educations">
+            <div class="row">
+               <div class="edu-info col-xs-12">
+                  <div class="row-header">
+                     <h3>{{edu.title}}</h3>
+                     <h4>{{edu.school}}</h4>
+                     <span v-if="edu.dateFrom">{{edu.dateFrom}}</span>
+                     <span v-if="edu.dateTo"> - {{edu.dateTo}}</span>
+                  </div>
+                  <div class="row-content">
+                     <p v-if="edu.description" v-html="edu.description"></p>
+                     <ul>
+                        <li v-for="respon in edu.responsibilities">
+                           {{respon}}
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
    <script src="dist/js/jquery-3.2.1.min.js" charset="utf-8"></script>

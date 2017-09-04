@@ -19,14 +19,14 @@ var db = firebase.database()
 var workVue = new Vue( {
 	el: '#section-work',
 	firebase: {
-		works: db.ref( 'new/works' ),
+		works: db.ref( 'works' ),
 	},
 } )
 var infoVue = new Vue( {
 	el: '#section-contact',
 	firebase: {
 		info: {
-			source: db.ref( 'new/info' ),
+			source: db.ref( 'info' ),
 			asObject: true,
 		}
 	},

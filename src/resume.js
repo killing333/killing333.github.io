@@ -21,9 +21,11 @@ var app4 = new Vue( {
 	el: '#resume',
 	firebase: {
 		info: {
-			source: db.ref( 'new/info' ),
+			source: db.ref( 'info' ),
 			asObject: true,
 		},
-		works: db.ref( 'new/works' ),
+		works: db.ref( 'works' ),
+		experiences: db.ref( 'experiences' ),
+		educations: db.ref( 'educations' ),
 	},
 } )
