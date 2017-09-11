@@ -8,7 +8,7 @@
    },
    "scripts": {
       "build": "lessc css/main.less dist/css/main.css && lessc css/resume.less dist/css/resume.css && webpack --config webpack.config.js",
-      "build-prod": "lessc --clean-css=\"advanced\" css/main.less dist/css/main.css && lessc --clean-css=\"advanced\" css/resume.less dist/css/resume.css && webpack --config webpack.config.js -p",
+      "build-prod": "lessc --clean-css=\"advanced\" css/main.less dist/css/main.css && lessc --clean-css=\"advanced\" css/resume.less dist/css/resume.css && webpack --config webpack.config.prod.js -p",
       "start": "http-server"
    },
    "author": "",

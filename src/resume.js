@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import Vue from 'vue/dist/vue.js';
 import VueFire from 'vuefire';
-import 'bootstrap/dist/js/bootstrap';
 
 // Init firebase
 let config = {
@@ -24,8 +23,23 @@ var app4 = new Vue( {
 			source: db.ref( 'info' ),
 			asObject: true,
 		},
-		works: db.ref( 'works' ),
-		experiences: db.ref( 'experiences' ),
-		educations: db.ref( 'educations' ),
+		works: {
+			source: db.ref( 'works' ),
+			readyCallback: function() {
+				$( '#section-works' ).removeClass( 'hidden' )
+			}
+		},
+		experiences: {
+			source: db.ref( 'experiences' ),
+			readyCallback: function() {
+				$( '#section-exps' ).removeClass( 'hidden' )
+			}
+		},
+		educations: {
+			source: db.ref( 'educations' ),
+			readyCallback: function() {
+				$( '#section-educations' ).removeClass( 'hidden' )
+			}
+		},
 	},
 } )
