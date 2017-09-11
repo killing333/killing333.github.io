@@ -5,6 +5,10 @@ body {
    font-family: 'Saira', sans-serif;
 }
 
+[v-cloak] {
+   display: none;
+}
+
 .container {
    width  : 800px;
    padding: 30px 0;
@@ -40,6 +44,8 @@ body {
 }
 
 #section-works {
+   page-break-after: always;
+
    .row-work {
       @border-style: 6px #cccccc solid;
       padding      : 12px 0;

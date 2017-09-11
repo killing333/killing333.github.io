@@ -50,8 +50,16 @@
                   </ol>
                </div>
             </div>
-            <div class="work-images" style="display: none;">
-               <img v-for="img in work.images" :src="img.url" alt="">
+            <div class="work-extra" style="display: none;">
+               <div class="work-highlights row" v-if="work.highlights && work.highlights.length > 0">
+                  <div class="col-md-4" v-for="highlight in work.highlights">
+                     <h3>{{highlight.title}}</h3>
+                     <p>{{highlight.description}}</p>
+                  </div>
+               </div>
+               <div class="work-images">
+                  <img v-for="img in work.images" :src="img.url" alt="">
+               </div>
             </div>
          </div>
       </div>

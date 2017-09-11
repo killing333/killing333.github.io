@@ -22,7 +22,7 @@
         <![endif]-->
 
    <!-- Add your site or application content here -->
-   <div id="resume" class="container">
+   <div id="resume" class="container" v-cloak>
       <div id="section-info">
          <table>
             <tbody>
@@ -34,6 +34,7 @@
                      <div class="info-detail">{{info.email}}</div>
                      <div class="info-detail">{{info.phone}}</div>
                      <div class="info-detail"><a :href="info.linkedin" target="_blank">{{info.linkedin}}</a></div>
+                     <div class="info-detail"><a :href="info.web" target="_blank">{{info.web}}</a></div>
                   </td>
                </tr>
             </tbody>
@@ -41,7 +42,7 @@
          <div class="info-description" v-if="info.description">
          </div>
       </div>
-      <div id="section-works" class="section">
+      <div id="section-works" class="section hidden">
          <h2>Works</h2>
          <div class="row-work" v-for="work in works">
             <div class="row">
@@ -64,7 +65,7 @@
             </div>
          </div>
       </div>
-      <div id="section-exps" class="section">
+      <div id="section-exps" class="section hidden">
          <h2>Experiences</h2>
          <div class="row-exp" v-for="exp in experiences">
             <div class="row">
@@ -86,7 +87,7 @@
             </div>
          </div>
       </div>
-      <div id="section-educations" class="section">
+      <div id="section-educations" class="section hidden">
          <h2>Educations</h2>
          <div class="row-edu" v-for="edu in educations">
             <div class="row">

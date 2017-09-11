@@ -42,7 +42,7 @@ $( window ).resize()
 
 // Toggle images when clicked a work
 $( '#section-work' ).on( 'click', '.row-work', function( event ) {
-	$( this ).find( ".work-images" ).slideToggle();
+	$( this ).find( ".work-extra" ).slideToggle();
 	return true;
 } )
 
