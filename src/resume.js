@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import Vue from 'vue/dist/vue.js';
 import VueFire from 'vuefire';
-import 'bootstrap/dist/js/bootstrap';
 
 // Init firebase
 let config = {

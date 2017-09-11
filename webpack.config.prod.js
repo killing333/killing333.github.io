@@ -20,7 +20,12 @@ module.exports = {
 	plugins: [
 		new webpack.ProvidePlugin( {
 			$: 'jquery',
-			jQuery: 'jquery',
+			jQuery: 'jquery'
+			// 'process.env': {
+			// 	NODE_ENV: '"production"'
+			// }
+		} ),
+		new webpack.DefinePlugin( {
 			'process.env': {
 				NODE_ENV: '"production"'
 			}
