@@ -34,10 +34,10 @@
       <div id="section-work">
          <div class="row-work" v-for="work in works">
             <div class="row">
-               <div class="work-icon col-md-3">
+               <div class="work-icon col-sm-3">
                   <img :src="work.icon" alt="">
                </div>
-               <div class="work-info col-md-9">
+               <div class="work-info col-sm-9">
                   <h2>{{work.title}}</h2>
                   <span v-if="work.subtitle">{{work.subtitle}}</span>
                   <!-- <span v-if="work.dateFrom">{{work.dateFrom}}</span>
@@ -52,8 +52,8 @@
             </div>
             <div class="work-extra" style="display: none;">
                <div class="work-highlights row" v-if="work.highlights && work.highlights.length > 0">
-                  <div class="col-md-4" v-for="highlight in work.highlights">
-                     <h3>{{highlight.title}}</h3>
+                  <div class="col-sm-4" v-for="highlight in work.highlights">
+                     <h3><img v-if="highlight.icon" class="icon" :src="highlight.icon" alt="">{{highlight.title}}</h3>
                      <p>{{highlight.description}}</p>
                   </div>
                </div>
