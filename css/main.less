@@ -82,6 +82,10 @@ a {
          cursor          : pointer;
       }
 
+      &.selected {
+         background-color: #eeeeeebb;
+      }
+
       .row {
          margin-left : 0;
          margin-right: 0;
@@ -121,25 +125,45 @@ a {
          }
       }
 
-      .work-highlights {
-         margin: 40px 0;
+      .work-extra {
 
-         .icon {
-            margin: 0 6px 4px 0;
+         .row {
+            margin: 20px 0;
          }
-      }
 
-      .work-images {
-         white-space: nowrap;
-         overflow-x : auto;
-         margin     : 20px -10px;
-
-         img {
-            width : 250px;
-            height: auto;
-            margin: 0 10px;
+         &-platforms {
+            ol {
+               list-style-type: none;
+               padding-left   : 0;
+               
+               li {
+                  display: inline-block;
+                  margin: 0 10px;
+                  font-size: 21px;
+               }
+            }
          }
-      }
+         &-highlights {
+            display: none;
+            margin: 40px 0;
+   
+            .icon {
+               margin: 0 6px 4px 0;
+            }
+         }
+   
+         &-images {
+            white-space: nowrap;
+            overflow-x : auto;
+            margin     : 20px -10px;
+   
+            img {
+               width : 250px;
+               height: auto;
+               margin: 0 10px;
+            }
+         }
+     }
    }
 }
 

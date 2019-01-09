@@ -43,6 +43,7 @@ $( window ).resize()
 // Toggle images when clicked a work
 $( '#section-work' ).on( 'click', '.row-work', function( event ) {
 	$( this ).find( ".work-extra" ).slideToggle();
+	$( this ).toggleClass("selected");
 	return true;
 } )
 
