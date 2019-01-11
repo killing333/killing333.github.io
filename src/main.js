@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import Vue from 'vue/dist/vue.js';
 import VueFire from 'vuefire';
+import PhotoSwipe from 'photoswipe/dist/photoswipe';
+import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 
 // Init firebase
 let config = {
@@ -48,7 +50,44 @@ $( '#section-work' ).on( 'click', '.row-work', function( event ) {
 } )
 
 // Stop toggle images when clicking link
-$( '#section-work' ).on( 'click', '.work-info a', function( event ) {
+$( '#section-work' ).on( 'click', 'a', function( event ) {
 	event.stopPropagation();
 	return true;
+} )
+
+var pswpElement = document.querySelectorAll('.pswp')[0];
+$( '#section-work' ).on( 'click', '.work-extra-images a', function( event ) {
+	var imgLinks = $(this).parents("ol").find("a");
+	var idx = imgLinks.index($(this));
+	var items = [];
+	console.log(idx);
+
+	imgLinks.each(function( index ) {
+		var size = $(this).attr('data-size').split('x');
+		items.push({
+			src: $(this).attr("href"),
+			w: parseInt(size[0], 10),
+			h: parseInt(size[1], 10)
+		});
+	});
+
+	// define options (if needed)
+	var options = {
+		index: idx, // start at first slide
+		bgOpacity: 0.85,
+		closeEl:true,
+		captionEl: false,
+		fullscreenEl: false,
+		zoomEl: false,
+		shareEl: false,
+		counterEl: true,
+		arrowEl: true,
+		preloaderEl: true
+	};
+	
+	// Initializes and opens PhotoSwipe
+	var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+	gallery.init();
+
+	return false;
 } )

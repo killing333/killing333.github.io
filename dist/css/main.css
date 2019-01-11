@@ -479,7 +479,19 @@ a:visited {
   overflow-x: auto;
   margin: 20px -10px;
 }
-#section-work .row-work .work-extra-images img {
+#section-work .row-work .work-extra-images ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+#section-work .row-work .work-extra-images ol li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 21px;
+}
+#section-work .row-work .work-extra-images ol li a {
+  display: inline-block;
+}
+#section-work .row-work .work-extra-images ol li img {
   width: 250px;
   height: auto;
   margin: 0 10px;
