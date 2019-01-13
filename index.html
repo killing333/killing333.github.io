@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>th1rt3en</title>
+   <title>HP</title>
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,11 +25,11 @@
    <!-- Add your site or application content here -->
    <div class="container">
       <div id="background">
-         <div id="background-logo">13</div>
+         <div id="background-logo"></div>
          <div id="background-logo_bg"></div>
       </div>
       <div id="section-front">
-         <h2 id="front-subtitle">Full Stack Developer</h2>
+         <h2 id="front-subtitle">Ho Lun Wan</h2>
       </div>
       <div id="section-work">
          <div class="row-work" v-for="work in works">
@@ -44,36 +44,123 @@
                      <span v-if="work.dateTo"> - {{work.dateTo}}</span> -->
                   <p v-html="work.description"></p>
                   <ol>
-                     <li v-for="link in work.links">
-                        <a :href="link.url" target="_blank">{{link.title}}</a>
+                     <li v-for="platform in work.platforms" v-if="platform.store_url">
+                        <a :href="platform.store_url" target="_blank">{{platform.name}}</a>
                      </li>
                   </ol>
                </div>
             </div>
             <div class="work-extra" style="display: none;">
-               <div class="work-highlights row" v-if="work.highlights && work.highlights.length > 0">
+               <div class="work-extra-platforms row" v-for="platform in work.platforms">
+                  <div v-if="platform.languages && platform.languages.length > 0" class="row">
+                     <h3>Languages:</h3>
+                     <ol>
+                        <li v-for="language in platform.languages">{{language}}</li>
+                     </ol>
+                  </div>
+                  <div v-if="platform.frameworks && platform.frameworks.length > 0" class="row">
+                     <h3>Frameworks involved:</h3>
+                     <ol>
+                        <li v-for="framework in platform.frameworks">
+                           <a :href="framework.link" target="_blank">{{framework.name}}</a>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+                <div class="work-extra-highlights row" v-if="work.highlights && work.highlights.length > 0">
                   <div class="col-sm-4" v-for="highlight in work.highlights">
                      <h3><img v-if="highlight.icon" class="icon" :src="highlight.icon" alt="">{{highlight.title}}</h3>
                      <p>{{highlight.description}}</p>
                   </div>
                </div>
-               <div class="work-images">
-                  <img v-for="img in work.images" :src="img.url" alt="">
+               <div class="work-extra-images row">
+                  <ol>
+                     <li v-for="img in work.images">
+                        <a :href="img.url" target="_blank" :data-size="img.width+'x'+img.height">
+                           <img :src="img.url" alt="">
+                        </a>                  
+                     </li>
+                  </ol>
                </div>
             </div>
          </div>
       </div>
       <div id="section-contact">
          <div class="row-contact">
-            <a v-bind:href="'mailto:'+info.email" class="contact-icon">
-                    <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"></path></svg>
-                </a>
-            <a class="contact-icon contact-icon-github" v-bind:href="info.github" target="_blank">
-                    <svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"></path></svg>
-                </a>
+            <a v-if="info.email" v-bind:href="'mailto:'+info.email" class="contact-icon">
+               <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"></path></svg>
+            </a>
+            <a v-if="info.github" class="contact-icon contact-icon-github" v-bind:href="info.github" target="_blank">
+               <svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"></path></svg>
+            </a>
          </div>
       </div>
    </div>
+
+   <!-- Root element of PhotoSwipe. Must have class pswp. -->
+   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <!-- Background of PhotoSwipe. 
+           It's a separate element as animating opacity is faster than rgba(). -->
+      <div class="pswp__bg"></div>
+  
+      <!-- Slides wrapper with overflow:hidden. -->
+      <div class="pswp__scroll-wrap">
+  
+          <!-- Container that holds slides. 
+              PhotoSwipe keeps only 3 of them in the DOM to save memory.
+              Don't modify these 3 pswp__item elements, data is added later on. -->
+          <div class="pswp__container">
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+          </div>
+  
+          <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+          <div class="pswp__ui pswp__ui--hidden">
+  
+              <div class="pswp__top-bar">
+  
+                  <!--  Controls are self-explanatory. Order can be changed. -->
+  
+                  <div class="pswp__counter"></div>
+  
+                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+  
+                  <button class="pswp__button pswp__button--share" title="Share"></button>
+  
+                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+  
+                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+  
+                  <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                  <!-- element will get class pswp__preloader--active when preloader is running -->
+                  <div class="pswp__preloader">
+                      <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                          <div class="pswp__preloader__donut"></div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                  <div class="pswp__share-tooltip"></div> 
+              </div>
+  
+              <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+              </button>
+  
+              <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+              </button>
+  
+              <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
    <script src="dist/js/jquery-3.2.1.min.js" charset="utf-8"></script>
    <script src="dist/js/bootstrap.min.js" charset="utf-8"></script>
    <script src="dist/js/main.bundle.js"></script>
@@ -95,6 +182,10 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
    </script>
+
+   <link rel="stylesheet" href="dist/lib/PhotoSwipe/photoswipe.css"> 
+   <link rel="stylesheet" href="dist/lib/PhotoSwipe/default-skin/default-skin.css"> 
+   <!-- <script src="dist/lib/PhotoSwipe/photoswipe-ui-default.min.js"></script>  -->
 </body>
 
 </html>
