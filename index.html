@@ -29,7 +29,8 @@
          <div id="background-logo_bg"></div>
       </div>
       <div id="section-front">
-         <h2 id="front-subtitle">Ho Lun Wan</h2>
+         <h2 v-if="info.name" id="front-title">{{info.name}}</h2>
+         <h3 v-if="info.subtitle" id="front-subtitle">{{info.subtitle}}</h3>
       </div>
       <div id="section-work">
          <div class="row-work" v-for="work in works">

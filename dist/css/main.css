@@ -407,9 +407,13 @@ a:visited {
   height: 1000px;
   padding-top: 1000px;
 }
-#front-subtitle {
+#front-title {
   text-align: center;
   font-size: 60px;
+}
+#front-subtitle {
+  text-align: center;
+  font-size: 36px;
 }
 #section-work {
   padding-top: 60px;

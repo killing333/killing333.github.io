@@ -33,6 +33,15 @@ var infoVue = new Vue( {
 		}
 	},
 } )
+var frontVue = new Vue( {
+	el: '#section-front',
+	firebase: {
+		info: {
+			source: db.ref( 'info' ),
+			asObject: true,
+		}
+	},
+} )
 
 $( window ).resize( function() {
 	$( '#section-front' ).css( {
