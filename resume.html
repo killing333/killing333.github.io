@@ -52,18 +52,33 @@
                </div>
                <div class="work-info col-xs-10">
                   <h2>{{work.title}}</h2>
+                  <h3 v-if="work.source" class="work-info-source">{{work.source}}</h3>
                   <span v-if="work.subtitle">{{work.subtitle}}</span>
-                  <p v-html="work.description"></p>
-                  <ol>
-                     <li v-for="link in work.links">
-                        <a :href="link.url" target="_blank">{{link.url}}</a>
-                     </li>
-                  </ol>
+                  <p v-if="work.description" v-html="work.description"></p>
                </div>
             </div>
+            <div v-if="work.responsibilities" class="row-work-responsibilities">
+               <h3>Responsibilities:</h3>
+               <ul>
+                  <li v-for="responsibility in work.responsibilities">{{responsibility}}</li>
+               </ul>
+            </div>
+            <div v-for="platform in work.platforms" class="row-work-frameworks">
+               <h3>Remarkable usage in {{platform.name}}:</h3>
+               <ul>
+                  <li v-for="framework in platform.frameworks" v-if="framework.remarkable">{{framework.name}}</li>
+               </ul>
+            </div>
+            <div v-if="work.challenges">
+               <h3>Challenges:</h3>
+               <ul>
+                  <li v-for="challenge in work.challenges">{{challenge}}</li>
+               </ul>      
+            </div>   
             <div class="work-images" style="display: none;">
                <img v-for="img in work.images" :src="img.url" alt="">
             </div>
+            <hr>
          </div>
       </div>
       <div id="section-exps" class="section hidden">
@@ -72,7 +87,8 @@
             <div class="row">
                <div class="exp-info col-xs-12">
                   <div class="row-header">
-                     <h3>{{exp.title}} - {{exp.company}}</h3>
+                     <h3 v-if="exp.company">{{exp.title}} - {{exp.company}}</h3>
+                     <h3 v-else>{{exp.title}}</h3>
                      <span v-if="exp.dateFrom">{{exp.dateFrom}}</span>
                      <span v-if="exp.dateTo"> - {{exp.dateTo}}</span>
                   </div>
