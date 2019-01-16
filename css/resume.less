@@ -52,7 +52,25 @@ body {
 
    .row-work {
       @border-style: 6px #cccccc solid;
-      padding      : 12px 0;
+      margin: 24px 0;
+
+      h2 {
+         margin-top : 0;
+         font-size  : 27px;
+         font-weight: 700;
+      }
+      h3 {
+         font-size: 21px;
+      }
+      .work-info-source {
+         margin: 0 0 10px;
+         font-size: 17px;
+      }
+   
+      ul {
+         padding-left   : 30px;
+         list-style-type: square;
+      }
 
       .row {
          margin-left : 0;
@@ -71,27 +89,31 @@ body {
       .work-info {
          padding: 0 0 0 35px;
 
-         h2 {
-            margin-top : 6px;
-            // font-size  : 42px;
-            font-weight: 700;
-         }
-
-         span {
-            font-size: 23px;
-         }
-
-         ol {
-            list-style-type: none;
-            padding-left   : 0;
-         }
 
          p {
-            margin-bottom: 20px;
+            margin-bottom: 0;
          }
 
          a {
             font-size: 16px;
+         }
+      }
+
+      &-frameworks {
+         ol {
+            padding-left: 30px;
+         }
+
+         li {
+            font-size: 17px;
+            display: inline-block;
+         }
+         li:after {
+            content: ',';
+            margin-right: 10px;
+         }
+         li:last-child:after {
+            content: '';
          }
       }
 
